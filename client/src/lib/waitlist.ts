@@ -5,7 +5,7 @@
  * - source: string (optional, e.g. "landing", "hero")
  */
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { db } from './firebase';
+import { db, isConfigured } from './firebase';
 
 const WAITLIST_COLLECTION = 'waitlist';
 
@@ -24,6 +24,13 @@ export async function joinWaitlist(
   const trimmed = email.trim();
   if (!isValidEmail(trimmed)) {
     return { success: false, error: 'Please enter a valid email address.' };
+  }
+
+  if (!isConfigured || !db) {
+    return {
+      success: false,
+      error: 'Sign up will be available soon. Thanks for your interest!',
+    };
   }
 
   try {

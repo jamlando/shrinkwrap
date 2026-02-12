@@ -1,0 +1,136 @@
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #f8f9fb 0%, #f3f0f9 50%, #efe9f7 100%);
+  color: #1f2937;
+}
+
+.auth-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+}
+
+.auth-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #1f2937;
+  text-decoration: none;
+}
+
+.auth-logo svg {
+  color: #7c3aed;
+}
+
+.auth-header a:not(.auth-logo) {
+  color: #374151;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-header a:not(.auth-logo):hover {
+  color: #1f2937;
+}
+
+.auth-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+}
+
+.auth-main h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 20rem;
+}
+
+.auth-form input {
+  padding: 0.625rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 0.5rem;
+  background: white;
+  color: #1f2937;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+.auth-form input::placeholder {
+  color: #9ca3af;
+}
+
+.auth-error {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #dc2626;
+}
+
+.auth-form .btn {
+  margin-top: 0.25rem;
+  padding: 0.75rem;
+}
+
+.auth-divider {
+  margin: 1.5rem 0 0;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.btn-google {
+  margin-top: 0.75rem;
+  width: 100%;
+  max-width: 20rem;
+  padding: 0.75rem;
+  background: white;
+  color: #374151;
+  border: 2px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-google:hover:not(:disabled) {
+  border-color: #9ca3af;
+  background: #f9fafb;
+}
+
+.btn-google:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-footer {
+  margin-top: 2rem;
+  font-size: 0.9375rem;
+  color: #6b7280;
+}
+
+.auth-footer a {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}

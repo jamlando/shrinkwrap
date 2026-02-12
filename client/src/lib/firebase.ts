@@ -13,14 +13,26 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
-const app: FirebaseApp = initializeApp(firebaseConfig);
-export const auth: Auth = getAuth(app);
-export const db: Firestore = getFirestore(app);
+// Only initialize Firebase when we have a valid-looking config (demo-safe: no key = no crash)
+const isConfigured =
+  typeof firebaseConfig.apiKey === 'string' &&
+  firebaseConfig.apiKey.length > 0 &&
+  typeof firebaseConfig.projectId === 'string' &&
+  firebaseConfig.projectId.length > 0;
 
+let app: FirebaseApp | null = null;
+let auth: Auth | null = null;
+let db: Firestore | null = null;
 let analytics: Analytics | null = null;
-if (typeof window !== 'undefined' && firebaseConfig.measurementId) {
-  analytics = getAnalytics(app);
-}
-export { analytics };
 
+if (isConfigured) {
+  app = initializeApp(firebaseConfig);
+  auth = getAuth(app);
+  db = getFirestore(app);
+  if (typeof window !== 'undefined' && firebaseConfig.measurementId) {
+    analytics = getAnalytics(app);
+  }
+}
+
+export { auth, db, analytics, isConfigured };
 export default app;

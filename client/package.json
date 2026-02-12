@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "demo": "npm run build && npm run preview",
+    "lint": "eslint ."
   },
   "dependencies": {
     "firebase": "^12.8.0",
